@@ -30,7 +30,7 @@ def open_file(file):
 
 # takes in a list in the form [name, nature, level, hp, attack, defense, spattack, spdefense, speed]
 def calculate_ivs(inputs):
-    # fills in all relevant fields
+    # fills in all the relevant input fields
     for i in range(len(field_ids)):
         element = browser.find_element_by_id(field_ids[i])
         if(i > 1):
@@ -41,7 +41,7 @@ def calculate_ivs(inputs):
     btn = browser.find_element_by_id('btn-ivs')
     btn.click()
 
-    # prints outputted IV spreads
+    # updates the cumulative IV spreads with the IV spreads from the current level
     for i in range(6):
         xpath = "//td[@id='spr{}-0']/span[{}]"
         xpath1 = xpath.format(i, 1)
@@ -58,5 +58,16 @@ def calculate_ivs(inputs):
         if(new_max < iv_spreads[i][1]):
             iv_spreads[i][1] = new_max
 
+print("Calculating IVs...")
+
 open_file('stats.txt') # test sample input file
+
+# format of input file:
+# pokemon name\n
+# nature\n
+# starting level\n
+# line containing stats at starting level in the form: hp atk def spatk spdef spd\n
+# line containing stats at next level\n
+# etc.\n
+
 print(iv_spreads)
