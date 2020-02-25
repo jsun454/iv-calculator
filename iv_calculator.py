@@ -1,6 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+# TODO: add more safety checks when reading input (whitespaces, etc.)
+# TODO: fix: if first line of stats is invalid then it will cause an error (check if later lines will give errors also, they might just do nothing)
+# TODO: create a separate python file (some kind of UI/form for inputting stats/outputting spreads so the user doesn't interact directly with text files or print statements
+# TODO: automate: use the IV spread obtained to find possible hidden powers
+# TODO: try to use mechanize instead
+
+print("Setting up IV calculator...")
+
 # selenium stuff
 options = Options()
 options.add_argument('--headless') # hides chrome window
